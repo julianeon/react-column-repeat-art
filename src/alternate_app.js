@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -55,8 +55,16 @@ function Frame(props) {
 }
 
 function App() {
+    const [count, setCount] = useState(1);
+
+    
+    useEffect(() => {
+	setInterval(() => { setCount(count+1); console.log(count) }, 3000);
+    });
+
+    
     return (
-	    <Frame total={14}/>
+	    <Frame total={count}/>
     )
 }
 
